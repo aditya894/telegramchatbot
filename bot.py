@@ -10,7 +10,7 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s  - %(message)
 
 logger=logging.getLogger(__name__)
 
-TOKEN = "1056264161:AAE-ZJ2SBRcXcl-kBhp38nxfjuHYg_VjciI"
+TOKEN = "1056264161:AAFCwn0F6nuQw9Eyw2VotCKvObb8WLL73i4"
 
 def start(bot, update):
 	print(update)
@@ -42,13 +42,11 @@ def main():
     dp.add_Handler(CommandHandler("help",_help))
     dp.add_Handler(CommandHandler("Filters.text", echo_text))
     dp.add_Handler(CommandHandler("Filters.sticker", echo_sticker))
-    dp.add_error_Handler(CommandHandler(error)
+    dp.add_error_Handler(CommandHandler(error))
     updater.start_polling()
     logger.info("polling started..")
     updater.idle()
     
 
-
 if __name__ == "__main__":
-
 	main()
