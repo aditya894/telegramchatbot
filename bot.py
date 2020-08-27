@@ -42,7 +42,7 @@ def main():
     dp.add_Handler(CommandHandler("help",_help))
     dp.add_Handler(CommandHandler("Filters.text", echo_text))
     dp.add_Handler(CommandHandler("Filters.sticker", echo_sticker))
-    dp.add_error_Handler(CommandHandler(error))
+    dp.add_error_Handler(error)
     updater.start_polling()
     logger.info("polling started..")
     updater.idle()
