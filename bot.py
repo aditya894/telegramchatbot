@@ -31,22 +31,23 @@ def echo_sticker(bot, update):
 	bot.send_sticker(chat_id=update.message.chat_id, sticker=update.message.sticker.file_id)
 
 def error(bot, update):
-	logger.error("Update '%s' caused error '%s'",update,update.error)
+	logger.error("Update '%s' caused error '%s'", update, update.error)
 
 
 def main():
     updater = Updater(TOKEN)
     dp = updater.dispatcher
 
-    dp.add_Handler(CommandHandler("start",start))
-    dp.add_Handler(CommandHandler("help",_help))
-    dp.add_Handler(CommandHandler("Filters.text", echo_text))
-    dp.add_Handler(CommandHandler("Filters.sticker", echo_sticker))
+    dp.add_handler(CommandHandler("start", start))
+    dp.add_handler(CommandHandler("help", _help))
+    dp.add_handler(CommandHandler(Filters.text, echo_text))
+    dp.add_handler(CommandHandler(Filters.sticker, echo_sticker))
     dp.add_error_Handler(error)
+
     updater.start_polling()
     logger.info("polling started..")
     updater.idle()
     
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
